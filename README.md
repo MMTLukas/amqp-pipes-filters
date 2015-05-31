@@ -51,7 +51,7 @@ function Filter(id) {
 }
 
 Filter.prototype.process = function (message) {
-  // TO SOMETHING WITH MESSAGE
+  // DO SOMETHING WITH MESSAGE
   return message;
 };
 
