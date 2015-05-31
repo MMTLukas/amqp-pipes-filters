@@ -1,8 +1,4 @@
-var IFilter = require("../classes/IFilter");
-
-function LowerCaseFilter() {
-  IFilter.call(this);
-}
+function LowerCaseFilter() {}
 
 LowerCaseFilter.prototype.process = function (message) {
   var input = message;

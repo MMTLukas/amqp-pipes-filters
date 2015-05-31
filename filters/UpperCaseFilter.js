@@ -1,8 +1,4 @@
-var IFilter = require("../classes/IFilter");
-
-function UpperCaseFilter() {
-  IFilter.call(this);
-}
+function UpperCaseFilter() {}
 
 UpperCaseFilter.prototype.process = function (message) {
   var input = message;
