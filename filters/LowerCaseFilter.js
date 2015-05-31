@@ -1,9 +1,9 @@
-function LowerCaseFilter() {}
+function LowerCaseFilter(id) {
+  this.id = id;
+}
 
 LowerCaseFilter.prototype.process = function (message) {
-  var input = message;
-  var result = input.toLowerCase();
-  return result;
+  return message.toLowerCase();
 };
 
 module.exports = LowerCaseFilter;

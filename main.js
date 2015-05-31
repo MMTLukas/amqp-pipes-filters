@@ -1,6 +1,7 @@
 var amqp = require('amqplib');
 var Pipe = require('./classes/Pipe');
 var pipes = require('./config.json');
+var colors = require('colors/safe');
 
 // Iterate through all filters and initialize for every filter a pipe
 // Check if filter has a method "process" declared
@@ -10,9 +11,9 @@ for (var i = 0; i < Object.keys(pipes).length; i++) {
   var to = pipes[current].to;
 
   var Filter = require(pipes[current].filter);
-  var filter = new Filter();
+  var filter = new Filter(i);
 
-  if(typeof filter.process !== "function"){
+  if (typeof filter.process !== "function") {
     console.error("Filter " + current + " have to implement a process function");
     return;
   }
@@ -33,7 +34,7 @@ function initPipe(from, to, filter, name) {
       var pipeInstance = new Pipe(channel, from, to, filter);
       return pipeInstance.start();
     }).then(function () {
-      console.log("Filter '" + name + "' with pipe initialized.");
+      console.log(colors.green("Filter '" + name + "' with pipe initialized."));
     });
 
   }).then(null, console.warn);

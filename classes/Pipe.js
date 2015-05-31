@@ -1,4 +1,5 @@
 var when = require('when');
+var colors = require('colors/safe');
 
 function Pipe(channel, from, to, filter) {
   this.channel = channel;
@@ -35,7 +36,7 @@ Pipe.prototype.start = function () {
 Pipe.prototype.handleMessage = function (message) {
 
   var body = message.content.toString();
-  console.log("Filter '" + this.from + "': Received '" + body + "' from '" + this.from + "'");
+  console.log(colors.yellow("Filter " + this.filter.id + " '" + this.from + "'") + ": Received '" + body + "'");
 
   // Filter the data before relay
   var filteredData = this.filter.process(body);
@@ -45,7 +46,7 @@ Pipe.prototype.handleMessage = function (message) {
   var options = {persistent: true};
 
   this.channel.publish(this.to, '', new Buffer(filteredData), options);
-  console.log("Filter '" + this.from + "': Sent '" + filteredData + "' to '" + this.to + "'");
+  console.log(colors.yellow("Filter " + this.filter.id + " '" + this.from + "'") + ": Sent '" + filteredData + "' to '" + this.to + "'");
 
   this.channel.ack(message)
 };

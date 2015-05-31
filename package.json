@@ -1,0 +1,29 @@
+{
+  "name": "AMQP-Pipes-Filters",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "dependencies": {
+    "amqplib": "~0.3.2",
+    "colors": "~1.1.0",
+    "when": "~3.7.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MMTLukas/amqp-pipes-filters.git"
+  },
+  "keywords": [
+    "AMQP",
+    "pipes",
+    "filters"
+  ],
+  "author": "Lukas Wanko",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/MMTLukas/amqp-pipes-filters/issues"
+  }
+}

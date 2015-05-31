@@ -1,12 +1,37 @@
 {
-  "lower_case": {
+  "lower_case_1": {
     "from": "lower_case",
-    "to": "upper_case",
+    "to": "number_filter",
     "filter": "./filters/LowerCaseFilter.js"
   },
-  "upper_case": {
-    "from": "upper_case",
+  "lower_case_2": {
+    "from": "lower_case",
+    "to": "number_filter",
+    "filter": "./filters/LowerCaseFilter.js"
+  },
+  "lower_case_3": {
+    "from": "lower_case",
+    "to": "number_filter",
+    "filter": "./filters/LowerCaseFilter.js"
+  },
+  "number_filter_1": {
+    "from": "number_filter",
+    "to": "non_latin_filter",
+    "filter": "./filters/NumberFilter.js"
+  },
+  "number_filter_2": {
+    "from": "number_filter",
+    "to": "non_latin_filter",
+    "filter": "./filters/NumberFilter.js"
+  },
+  "non_latin_filter_1": {
+    "from": "non_latin_filter",
     "to": "result",
-    "filter": "./filters/UpperCaseFilter.js"
+    "filter": "./filters/NonLatinFilter.js"
+  },
+  "non_latin_filter_2": {
+    "from": "non_latin_filter",
+    "to": "result",
+    "filter": "./filters/NonLatinFilter.js"
   }
 }

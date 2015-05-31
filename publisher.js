@@ -6,7 +6,7 @@ var pipes = require('./config.json');
 var message = process.argv.slice(2).join(' ') || "Hello World";
 
 // The message should go to the first defined filter
-var filter = Object.keys(pipes)[0];
+var filter = pipes[Object.keys(pipes)[0]].from;
 
 // Create connection, channel and send the message
 amqp.connect("amqp://localhost").then(function (connection) {
@@ -28,11 +28,11 @@ amqp.connect("amqp://localhost").then(function (connection) {
       var options = {persistent: true};
 
       // Send a message to the exchange
-      return channel.publish(filter, '', new Buffer(message), options);
+      for (var i = 0; i < 9; i++) {
+        channel.publish(filter, '', new Buffer(message), options);
+        console.log("[x] Sent '%s'", message, "to filter '" + filter + "'");
+      }
     }).then(function () {
-
-      console.log("[x] Sent '%s'", message, "to filter '" + filter + "'");
-
       // After sending and logging the message we can close the channel
       return channel.close();
     });
