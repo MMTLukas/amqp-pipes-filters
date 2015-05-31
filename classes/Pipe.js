@@ -43,7 +43,8 @@ Pipe.prototype.handleMessage = function (message) {
 
   // OPTIONS PUBLISH
   // Persistent (message will survive broker restarts): true
-  var options = {persistent: true};
+  // Mandatory (message will be returned, if it is not routed to a queue): true
+  var options = {persistent: true, mandatory:true};
 
   this.channel.publish(this.to, '', new Buffer(filteredData), options);
   console.log(colors.yellow("Filter " + this.filter.id + " '" + this.from + "'") + ": Sent '" + filteredData + "' to '" + this.to + "'");

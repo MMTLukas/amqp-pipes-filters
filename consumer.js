@@ -1,7 +1,15 @@
 var amqp = require('amqplib');
 var when = require('when');
+var pipes = require('./config.json');
+var colors = require('colors/safe');
 
-var resultPipe = 'result';
+var parameters = process.argv.slice(2);
+if (parameters.length !== 1) {
+  console.error(colors.red("EXIT.") + " Command should be like: " + colors.yellow("node consumer.js filter_name"));
+  return;
+}
+
+var resultPipe = parameters[0];
 amqp.connect().then(function (conn) {
 
   process.once('SIGINT', function () {

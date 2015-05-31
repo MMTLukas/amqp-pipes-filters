@@ -14,18 +14,19 @@ First terminal:
 git clone https://github.com/MMTLukas/amqp-pipes-filters.git
 cd amqp-pipes-filters
 npm install
-node main.js
+node main.js [--filter=filter_name]
 ```
 The main.js function setups all filters (and their pipes) of the config.json file.
 
 Second terminal:
 ```
-node consumer.js
+node consumer.js filter_name
 ```
 Third terminal:
 ```
-node publisher.js [message]
+node publisher.js filter_name message
 ```
+
 ## Adapt
 You can edit the config.json file, implement more filters and add them.
 
@@ -34,9 +35,9 @@ Add and remove filters from the config.json file.
 
 ```
 {
-  [filtername]: {
-    "from": [filtertype of sender],
-    "to": [filtertype of receiver],
+  [filter_name]: {
+    "from": [filter_type of sender],
+    "to": [filter_type of receiver],
     "filter": [relative path to filter]
   },
   ...
