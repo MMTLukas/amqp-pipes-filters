@@ -1,0 +1,24 @@
+{
+  "connection": {
+    "host": "localhost",
+    "port": "5672",
+    "user": "guest",
+    "pwd": "guest"
+  },
+  "filterPath": "../../filters/",
+	"pipes":[{
+		"from": "lovely",
+		"to": "greatness",
+		"filter": "lovelyFilter.js"
+	},
+  {
+    "from": "greatness",
+    "to": "reinforce",
+    "filter": "greatnessFilter.js"
+  },
+  {
+    "from": "reinforce",
+    "to": "result",
+    "filter": "reinforceFilter.js"
+  }]
+}

@@ -1,0 +1,12 @@
+{
+  "lower_case": {
+    "from": "lower_case",
+    "to": "upper_case",
+    "filter": "./filters/LowerCaseFilter.js"
+  },
+  "upper_case": {
+    "from": "upper_case",
+    "to": "result",
+    "filter": "./filters/UpperCaseFilter.js"
+  }
+}
